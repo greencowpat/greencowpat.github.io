@@ -39,9 +39,8 @@ img {
   font-style: italic;
 }
 
-
 .mymodal {
   margin: 100px auto;
   position: absolute;
-  display: none;
+  /* display: none; */
 }

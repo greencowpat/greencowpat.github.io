@@ -36,7 +36,16 @@ document.addEventListener('click', (e) => {
         let selectedDrink = drinkArray[0][chosenIndex];
         document.querySelector('.modalName').textContent = selectedDrink.strDrink;
         document.querySelector('.modalImg img').src = selectedDrink.strDrinkThumb;
-        document.querySelector('.modalIngredients')
+        document.querySelector('.modalIngredients ol')
 
+        for (let i = 0; i < 15; i++) {
+            if (selectedDrink[`strIngredient${i}`]) {
+                let ul = document.querySelector('.modalIngredients ul')
+                let li = document.createElement('li');
+                li.appendChild(document.createTextNode(selectedDrink[`strIngredient${i}`]))
+                ul.appendChild(li)
+            }
+        }
+        document.querySelector('.modalInstructions').textContent = selectedDrink.strInstructions;
     }
 })
