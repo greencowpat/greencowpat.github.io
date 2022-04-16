@@ -28,10 +28,15 @@ function getCocktail() {
     })
 };
 
-    
+// Popup modal after clicking on card
 document.addEventListener('click', (e) => {
     if(e.target.closest('.card')) {
         let id = e.target.closest('.card');
-        console.log(id.dataset.index)
+        let chosenIndex = id.dataset.index;
+        let selectedDrink = drinkArray[0][chosenIndex];
+        document.querySelector('.modalName').textContent = selectedDrink.strDrink;
+        document.querySelector('.modalImg img').src = selectedDrink.strDrinkThumb;
+        document.querySelector('.modalIngredients')
+
     }
 })
