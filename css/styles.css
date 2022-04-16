@@ -38,3 +38,10 @@ img {
   font-size: 10px;
   font-style: italic;
 }
+
+
+.mymodal {
+  margin: 100px auto;
+  position: absolute;
+  display: none;
+}
