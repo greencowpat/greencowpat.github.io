@@ -2,6 +2,14 @@ document.querySelector('button').addEventListener('click', getCocktail)
 
 const drinkArray = [];
 
+
+
+function clearChildNodes(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild)
+    }
+}
+
 function getCocktail() {
     let drink = document.querySelector('input').value;
 
@@ -30,13 +38,17 @@ function getCocktail() {
 
 // Popup modal after clicking on card
 document.addEventListener('click', (e) => {
+
+    // reset ingredient list from previous clicks
+    const ingredientsList = document.querySelector('.modalIngredients ul')
+    clearChildNodes(ingredientsList);
+
     if(e.target.closest('.card')) {
         let id = e.target.closest('.card');
         let chosenIndex = id.dataset.index;
         let selectedDrink = drinkArray[0][chosenIndex];
         document.querySelector('.modalName').textContent = selectedDrink.strDrink;
         document.querySelector('.modalImg img').src = selectedDrink.strDrinkThumb;
-        document.querySelector('.modalIngredients ol')
 
         for (let i = 0; i < 15; i++) {
             if (selectedDrink[`strIngredient${i}`]) {
