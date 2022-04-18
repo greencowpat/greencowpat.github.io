@@ -11,7 +11,7 @@ function clearChildNodes(parent) {
 }
 
 function getCocktail() {
-    let drink = document.querySelector('input').value;
+    let drink = encodeURI(document.querySelector('input').value);
 
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drink}`)
     .then(res => {
