@@ -40,24 +40,35 @@ function getCocktail() {
 document.addEventListener('click', (e) => {
 
     // reset ingredient list from previous clicks
-    const ingredientsList = document.querySelector('.modalIngredients ul')
-    clearChildNodes(ingredientsList);
+    const ingredientsList = document.querySelector('.ingredientList ul')
+    
 
     if(e.target.closest('.card')) {
+        clearChildNodes(ingredientsList);
         let id = e.target.closest('.card');
         let chosenIndex = id.dataset.index;
         let selectedDrink = drinkArray[0][chosenIndex];
         document.querySelector('.modalName').textContent = selectedDrink.strDrink;
         document.querySelector('.modalImg img').src = selectedDrink.strDrinkThumb;
 
+        //ingredients list
         for (let i = 0; i < 15; i++) {
             if (selectedDrink[`strIngredient${i}`]) {
-                let ul = document.querySelector('.modalIngredients ul')
+                let ul = document.querySelector('.ingredientList ul')
                 let li = document.createElement('li');
                 li.appendChild(document.createTextNode(selectedDrink[`strIngredient${i}`]))
                 ul.appendChild(li)
             }
         }
         document.querySelector('.modalInstructions').textContent = selectedDrink.strInstructions;
+
+        let myModal = document.querySelector('.mymodal');
+        myModal.classList.toggle('hidden');
     }
+})
+
+// close button
+document.querySelector('.close').addEventListener('click', () => {
+    let myModal = document.querySelector('.mymodal');
+    myModal.classList.toggle('hidden')
 })

@@ -9,25 +9,31 @@
     <link rel="stylesheet" href="css/styles.css"> 
 </head>
 <body>
+<div class="content">
     <h1 id="cock-name">Cocktail Searcher</h1>
-    <label for="cocktail-search">Search for cocktail:</label>
-    <input type="text" id="cocktail-search">
-    <button type="submit" id="submit">submit</button>
-
+    <div class="searchContainer">
+        <label for="cocktail-search">Search for cocktail:</label>
+        <input type="text" id="cocktail-search" placeholder="search...">
+        <button type="submit" id="submit">submit</button>
+    </div>
  
     <div class="canvas" id="canvas"></div>
 
-    <div class="mymodal" id="mymodal">
+    <div class="mymodal hidden" id="mymodal">
         <div class="modalcontent">
             <div class="close">&times;</div>
             <div class="modalName"></div>
             <div class="modalImg"><img src="" alt=""></div>
             <div class="modalIngredients">
-                <ul></ul>
+                <div class="ingredients">Ingredients:</div>
+                <div class="ingredientList">
+                    <ul></ul>
+                </div>
             </div>
             <div class="modalInstructions"></div>
         </div>
         
     </div>
+</div>
 </body>
 </html>
